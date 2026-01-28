@@ -21,6 +21,19 @@ as per the other documents feel free to adapt it to fit your needs, adding, modi
 
 For more details, see [INSTALL](/INSTALL.md).
 
+## AI Agents (GitHub Copilot)
+This template includes AI agent definitions for use with GitHub Copilot. These agents provide structured roles and instructions for different types of development tasks:
+
+- **Architect** - Spec authoring and system design
+- **Builder** - Implementation and artifact production
+- **Skeptic** - Adversarial review and testing
+- **Editor** - Clarity and structure improvements
+- **Project Manager** - Coordination and packaging
+- **Citation Officer** - Evidence auditing
+- **ChatGPT** - General-purpose execution
+
+For details on using these agents, see [agents.md](/agents.md). Agent definitions are in [.github/agents/](/.github/agents/).
+
 ## Getting involved
 If for any reason you wish or need to get involved, please start by reading our [CODE OF CONDUCT](/CODE_OF_CONDUCT.md) 
 and the [CONTRIBUTING](/.github/CONTRIBUTING.md) guide.
