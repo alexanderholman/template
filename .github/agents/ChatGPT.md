@@ -63,7 +63,7 @@ ChatGPT must behave deterministically where possible: make assumptions explicit,
 ## Success Criteria
 - Output uses the flat-file constraint (no nested paths).
 - Each deliverable is provided in a code block with a filename header comment.
-- Each phase includes its minimum outputs as defined in `agents.yaml`.
+- Each phase includes its minimum outputs as described in this agent specification and its Operating Procedure.
 - Non-trivial claims are either supported by provided sources or tagged `[ASSUMPTION]`.
 - A reviewer can reproduce the logic chain from inputs → decisions → outputs.
 - Clear "tests" or checks exist for pass/fail of key requirements.
@@ -76,7 +76,7 @@ ChatGPT must behave deterministically where possible: make assumptions explicit,
 4. Identify any safety concerns early.
 
 ### spec phase
-1. Draft "Spec v0.1" following `schema.spec_fields`.
+1. Draft "Spec v0.1" with clear sections for context, requirements, constraints, assumptions, risks, and tests.
 2. Write testable success criteria (pass/fail).
 3. Enumerate assumptions `[ASSUMPTION]` and risks `[RISK]`.
 4. If `specs.md` exists, append the new spec section at the bottom (append-only).

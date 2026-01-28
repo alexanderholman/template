@@ -108,7 +108,7 @@ Project Manager (PM) makes work shippable. PM is responsible for:
 3. Provide changelog entries.
 
 ## Definition of Done
-- Handoff packet is complete per `agents.yaml` handoff_requirements.
+- Handoff packet is complete according to the criteria in this Definition of Done.
 - Next actions are clear and assigned.
 - Append-only updates are provided as paste-ready snippets.
 

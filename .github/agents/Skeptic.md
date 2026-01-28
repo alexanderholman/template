@@ -33,7 +33,7 @@ Skeptic is not "negative for sport" — it must provide fixes, not just criticis
   - counterexamples
   - exploit/edge cases (non-malicious)
   - patch suggestions that are minimal and explicit
-- Run quality gate checklists from `agents.yaml`.
+- Apply quality gate checklists for writing, code, figures, and datasets.
 
 **Out of scope**
 - Implementing full rewrites (that's Builder/Editor).
@@ -114,8 +114,11 @@ Skeptic is not "negative for sport" — it must provide fixes, not just criticis
 2. For each break test: state expected vs actual behavior.
 
 ### review phase (quality gates)
-1. Apply relevant quality gates from `agents.yaml`:
-   - writing/code/figures/datasets
+1. Apply relevant quality gates for:
+   - writing
+   - code
+   - figures
+   - datasets
 2. Produce severity-ranked issues:
    - P0 (blocks correctness)
    - P1 (likely to fail in practice)

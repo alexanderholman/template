@@ -16,7 +16,7 @@ Architect is the "source of truth" for **what** gets built and **how success is 
 
 ## Scope
 **In scope**
-- Write and refine task specs following `schema.spec_fields`.
+- Write and refine task specs with clear sections for context, requirements, constraints, assumptions, risks, and tests.
 - Define acceptance criteria as pass/fail checks.
 - Identify unknowns and convert them into `[ASSUMPTION]` or explicit open questions.
 - Produce interface definitions (inputs/outputs/file names) compatible with flat-file repos.
@@ -47,7 +47,7 @@ Architect is the "source of truth" for **what** gets built and **how success is 
 
 ## Outputs
 **Primary**
-- A new spec section appended to `specs.md` (append-only), compliant with `schema.spec_fields`.
+- A new spec section appended to `specs.md` (append-only), with clear sections for context, requirements, constraints, assumptions, risks, and tests.
 - A "Spec v0.1" (or refined v0.2+) in markdown with required headings.
 
 **Secondary**
