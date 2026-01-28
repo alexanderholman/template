@@ -10,6 +10,5 @@ and removing as necessary.
 
 This project makes use of code from the following libraries:
 <!-- EXAMPLE START -->
-<!-- None currently, but future acknowledgements can be added here -->
-<!-- * [{{acknowledgement-name}}]({{acknowledgement-link}}), [{{licence-name}}]({{licence-link}}) -->
+* [{{acknowledgement-name}}]({{acknowledgement-link}}), [{{licence-name}}]({{licence-link}})
 <!--  EXAMPLE END  -->

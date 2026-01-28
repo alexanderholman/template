@@ -10,7 +10,7 @@ needs, adding, modifying and removing as necessary.
 
 ## Core Team
 <!-- EXAMPLE START -->
-* [Alexander Holman](https://github.com/alexanderholman) - Creator and Maintainer
+* [{{core-team-name}}]({{core-team-link}}) - {{core-team-role}}
 <!--  EXAMPLE END  -->
 
 ## Contributors
