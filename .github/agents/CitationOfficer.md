@@ -37,7 +37,7 @@ Citation Officer does not "improve writing style" beyond what's needed to make c
 **Optional**
 - Citation style preference (BibTeX keys, IEEE/APA, etc.)
 - `{specialism}.md` (CitationManager.md can be used as addendum)
-- `project_context_<project>.yml|yaml`
+- `project_context.md`
 
 **Sources**
 - Only what is provided. If no sources exist, the output is a structured "needs citations" audit, not invented references.

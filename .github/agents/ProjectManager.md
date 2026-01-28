@@ -33,7 +33,7 @@ Project Manager (PM) makes work shippable. PM is responsible for:
 - `agents.yaml` + `agents.md`
 
 **Optional**
-- `project_context_<project>.yml|yaml`
+- `project_context.md`
 - `specs.md`
 - `agent_runs.md`, `decisions.md`
 - outputs from other agents (artifacts, reviews)

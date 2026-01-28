@@ -74,7 +74,7 @@ agents.md (this file)
 ### MAY Requirements
 1. **Additional Metadata**: Agents MAY include additional custom metadata fields
 2. **External Resources**: Agents MAY reference external documentation or resources
-3. **Specialisms**: Agents MAY reference domain-specific addendum files
+3. **Specializations**: Agents MAY reference domain-specific addendum files
 4. **Standard Response Format**: Agents MAY document their expected output format
 
 ## Agent Roles
@@ -163,20 +163,17 @@ When modifying agents:
 1. Update the agent definition in `agents.yaml` if metadata changes
 2. Update the markdown file with changes
 3. Increment the version number
-4. Document changes in CHANGELOG.md
+4. Document significant changes in the repository's CHANGELOG.md or commit messages
 
 ## Validation
 
-To validate agent files (if validation script exists):
-```bash
-./validate_agents.sh
-```
+These agent files follow a standard structure with required headings. To validate:
+- Verify all files exist in `.github/agents/`
+- Check all required headings are present
+- Confirm all agents in `agents.yaml` reference existing files
+- Verify all agent IDs are unique
 
-Or manually check:
-- All files exist in `.github/agents/`
-- All required headings are present
-- All agents in `agents.yaml` reference existing files
-- All agent IDs are unique
+A validation script may be added in the future for automated checking.
 
 ## Compatibility with GitHub Copilot
 

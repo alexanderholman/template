@@ -34,7 +34,7 @@ Editor refines what exists. The Editor does not invent new requirements and does
 **Optional**
 - `agents.md`
 - `{specialism}.md`
-- `project_context_<project>.yml|yaml`
+- `project_context.md`
 - `decisions.md` relevant entries
 
 **Sources**
