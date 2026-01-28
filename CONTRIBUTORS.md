@@ -8,7 +8,8 @@ documents feel free to adapt it to fit your needs, adding, modifying and removin
 # Contributors
 Below is a list of everyone involved and whe appropriate the role they played.
 <!-- EXAMPLE START -->
-* [{{contributor-name}}]({{contributor-link}}) - {{contributor-role}}
+<!-- Contributors will be added here as they contribute to the project -->
+<!-- * [{{contributor-name}}]({{contributor-link}}) - {{contributor-role}} -->
 <!--  EXAMPLE END  -->
 
 For a list of core team members see [AUTHORS](/AUTHORS.md).

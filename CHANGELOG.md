@@ -11,7 +11,12 @@ current version.
 A rough overview of changes to over time.
 
 <!-- EXAMPLE START -->
-## [v{{package-version}}](https://github.com/alexanderholman/{{repo-name}}/releases/tag/v{{package-version}}) {{package-version-release-date}}
-{{chaneglog-overview}}
-* [{{chaneglog-type}}] - {{chaneglog-action}}
+## [v1.0.0](https://github.com/alexanderholman/{{repo-name}}/releases/tag/v1.0.0) 2026-01-28
+Initial release of {{package-name}} - {{package-description}}.
+* [Added] - {{feature-description}}
+* [Added] - {{feature-description}}
+* [Added] - {{feature-description}}
+* [Added] - {{feature-description}}
+* [Added] - {{feature-description}}
+* [Added] - {{feature-description}}
 <!--  EXAMPLE END -->
