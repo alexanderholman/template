@@ -25,6 +25,7 @@ This template is preloaded with AgentFactory-style agent definitions, validation
   - `agent_runs.md` - Execution logs
 
 - **traits/** - Reusable behavioral modules for agents/specialisms/tasks
+- **skills/** - Operational playbooks for repeatable runtime behaviors
 - **workflows/** - Task-level execution patterns and validation gates
 - **tasks/** - Recurring and stateful task tracking (cadence, wip, triage)
 
@@ -136,6 +137,18 @@ tail -50 decisions.md
 
 # View recent agent runs
 tail -50 agent_runs.md
+```
+
+### Verify Agent Memory Wiring
+```bash
+# Install or refresh memlog
+cd ~/AgentMemory && ./install.sh --force
+
+# Health checks
+memlog doctor --root ~/opencode --strict
+
+# Continuity graph checks
+memlog validate --root ~/opencode --strict
 ```
 
 ### Update Agent Metadata

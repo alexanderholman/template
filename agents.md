@@ -164,3 +164,15 @@ The following files are **append-only** and MUST NOT have content removed or mod
 ## Markdown Output Preference
 
 All agent outputs and documentation SHOULD be in Markdown format for consistency and readability.
+
+## AgentMemory Integration
+
+For OpenCode continuity, agents SHOULD use AgentMemory (`memlog`) during action-phase execution:
+
+```bash
+memlog doctor --root ~/opencode --strict
+memlog log --root ~/opencode --agent-id <agent_id> --session-id <session_id> --event-type <event_type> --message "..."
+memlog validate --root ~/opencode --strict
+```
+
+Use `skills/AgentMemory.md` and `workflows/opencode-agent-memory.md` for standardized runtime behavior.

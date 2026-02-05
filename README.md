@@ -37,6 +37,22 @@ This template includes AgentFactory-compatible AI agent definitions and validati
 
 For details, see [AGENTS.md](/AGENTS.md) and [agents.md](/agents.md). Agent definitions live under [agents/](/agents/).
 
+## Agent Memory Setup
+Use AgentMemory to add cross-session continuity for OpenCode and AgentFactory runs.
+
+```bash
+# Install or refresh memlog
+cd ~/AgentMemory && ./install.sh --force
+
+# Verify installation and runtime wiring
+memlog doctor --root ~/opencode --strict
+
+# Validate memory links and raw artifacts
+memlog validate --root ~/opencode --strict
+```
+
+See [skills/AgentMemory.md](/skills/AgentMemory.md) and [workflows/opencode-agent-memory.md](/workflows/opencode-agent-memory.md) for operational guidance.
+
 ## Getting involved
 If for any reason you wish or need to get involved, please start by reading our [CODE OF CONDUCT](/CODE_OF_CONDUCT.md) 
 and the [CONTRIBUTING](/.github/CONTRIBUTING.md) guide.
