@@ -1,5 +1,5 @@
 # filename: repo.yaml
-# Minimal repository manifest for the Agent Factory system (flat, append-only files; flexible directory hierarchy).
+# Minimal repository manifest for the Agent Factory system with append-only log files and a flexible directory hierarchy.
 
 repo:
   name: "agent-factory"
