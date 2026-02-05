@@ -1,155 +1,91 @@
 # agents.yaml
-# Configuration file for AI Agent definitions
-# This file defines the structure and metadata for agents in GitHub Copilot
+# Configuration file for Agent Factory
+# This file defines the structure and metadata for agents in the system
 # All agents MUST be defined here before they can be used
 #
-# IMPORTANT: This file should be placed at the repository root or in .github/
-# The agents themselves are defined in .github/agents/ directory
+# IMPORTANT: Before defining agents with file_path, ensure the agents/ directory exists.
+# The validation script will check for this directory and create it if needed.
 
 # Schema version
 schema_version: "1.0.0"
 
 # Agent definitions
 agents:
-  - id: "architect-001"
-    name: "Architect"
-    description: "Spec Author + System Designer - converts user goals into testable specs"
-    version: "1.0.0"
-    tags:
-      - specification
-      - design
-      - planning
-    required_headings:
-      - "Role and Objective"
-      - "Scope"
-      - "Inputs"
-      - "Outputs"
-      - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/Architect.md"
-    status: "active"
-    created_date: "2026-01-28"
-    last_modified: "2026-01-28"
-
-  - id: "builder-001"
-    name: "Builder"
-    description: "Implementer / Artifact Producer - turns specs into deliverables"
-    version: "1.0.0"
-    tags:
-      - implementation
-      - development
-      - artifacts
-    required_headings:
-      - "Role and Objective"
-      - "Scope"
-      - "Inputs"
-      - "Outputs"
-      - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/Builder.md"
-    status: "active"
-    created_date: "2026-01-28"
-    last_modified: "2026-01-28"
-
-  - id: "skeptic-001"
-    name: "Skeptic"
-    description: "Adversarial Reviewer / Breaker - finds edge cases and failure modes"
-    version: "1.0.0"
-    tags:
-      - review
-      - testing
-      - quality-assurance
-    required_headings:
-      - "Role and Objective"
-      - "Scope"
-      - "Inputs"
-      - "Outputs"
-      - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/Skeptic.md"
-    status: "active"
-    created_date: "2026-01-28"
-    last_modified: "2026-01-28"
-
-  - id: "editor-001"
-    name: "Editor"
-    description: "Clarity + Structure Editor - improves readability without changing intent"
+  - id: "example-agent-001"
+    name: "Example Documentation Agent"
+    description: "A demonstration agent showing the required structure for agent documentation"
     version: "1.0.0"
     tags:
       - documentation
-      - clarity
-      - structure
+      - automation
+      - utility
     required_headings:
-      - "Role and Objective"
-      - "Scope"
+      - "Purpose"
       - "Inputs"
       - "Outputs"
+      - "Behavior"
       - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/Editor.md"
+    file_path: "agents/example-documentation-agent.md"
     status: "active"
     created_date: "2026-01-28"
     last_modified: "2026-01-28"
 
-  - id: "project-manager-001"
-    name: "Project Manager"
-    description: "Packaging + Orchestration - coordinates the agent pipeline"
+  - id: "tester-001"
+    name: "Tester"
+    description: "Test Creator + Quality Validator - Creates comprehensive test suites, validates test coverage, ensures quality gates are met through systematic testing"
     version: "1.0.0"
     tags:
-      - coordination
-      - packaging
-      - orchestration
+      - testing
+      - quality
+      - automation
     required_headings:
-      - "Role and Objective"
-      - "Scope"
+      - "Purpose"
       - "Inputs"
       - "Outputs"
+      - "Behavior"
       - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/ProjectManager.md"
+    file_path: "agents/Tester.md"
     status: "active"
-    created_date: "2026-01-28"
-    last_modified: "2026-01-28"
+    created_date: "2026-01-29"
+    last_modified: "2026-01-29"
 
-  - id: "citation-officer-001"
-    name: "Citation Officer"
-    description: "Evidence Auditor + Claim Tracker - ensures no fabricated citations"
+  - id: "security-reviewer-001"
+    name: "SecurityReviewer"
+    description: "Security Analyst + Compliance Auditor - Identifies security vulnerabilities, enforces security best practices, ensures compliance with security standards"
     version: "1.0.0"
     tags:
-      - verification
-      - citations
-      - audit
+      - security
+      - analysis
+      - quality
     required_headings:
-      - "Role and Objective"
-      - "Scope"
+      - "Purpose"
       - "Inputs"
       - "Outputs"
+      - "Behavior"
       - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/CitationOfficer.md"
+    file_path: "agents/SecurityReviewer.md"
     status: "active"
-    created_date: "2026-01-28"
-    last_modified: "2026-01-28"
+    created_date: "2026-01-29"
+    last_modified: "2026-01-29"
 
-  - id: "chatgpt-001"
-    name: "ChatGPT"
-    description: "Generalist Execution Agent - default agent for interactive tasks"
+  - id: "opencode-manager-001"
+    name: "OpenCodeManager"
+    description: "Orchestration + Session Control - Coordinates OpenCode sessions, enforces AgentFactory rules, and manages role handoffs"
     version: "1.0.0"
     tags:
-      - general-purpose
-      - interactive
-      - execution
+      - automation
+      - integration
+      - utility
     required_headings:
-      - "Role and Objective"
-      - "Scope"
+      - "Purpose"
       - "Inputs"
       - "Outputs"
+      - "Behavior"
       - "Constraints"
-      - "Success Criteria"
-    file_path: ".github/agents/ChatGPT.md"
+    file_path: "agents/opencode/OpenCodeManager.md"
     status: "active"
-    created_date: "2026-01-28"
-    last_modified: "2026-01-28"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
 
 # Validation rules
 validation_rules:
@@ -161,8 +97,6 @@ validation_rules:
       test: "check_required_headings"
     - rule: "All agents MUST have at least one tag"
       test: "check_tags_present"
-    - rule: "All agent files MUST be in .github/agents/ directory"
-      test: "check_file_location"
     - rule: "All agent file paths MUST exist"
       test: "check_file_exists"
   
@@ -179,33 +113,21 @@ validation_rules:
 
 # Allowed tags (extensible list)
 allowed_tags:
-  - specification
-  - design
-  - planning
-  - implementation
-  - development
-  - artifacts
-  - review
+  - automation
+  - analysis
   - testing
-  - quality-assurance
   - documentation
-  - clarity
-  - structure
-  - coordination
-  - packaging
-  - orchestration
-  - verification
-  - citations
-  - audit
-  - general-purpose
-  - interactive
-  - execution
+  - deployment
+  - monitoring
+  - integration
+  - utility
+  - security
+  - quality
 
 # Required headings for agent documentation files
 required_headings:
-  - "Role and Objective"
-  - "Scope"
+  - "Purpose"
   - "Inputs"
   - "Outputs"
+  - "Behavior"
   - "Constraints"
-  - "Success Criteria"
