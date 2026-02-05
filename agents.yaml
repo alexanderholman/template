@@ -87,6 +87,135 @@ agents:
     created_date: "2026-02-05"
     last_modified: "2026-02-05"
 
+  - id: "architect-001"
+    name: "Architect"
+    description: "System and solution architect - Designs overall system structure, ensures alignment with requirements and constraints"
+    version: "1.0.0"
+    tags:
+      - analysis
+      - documentation
+      - quality
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/Architect.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+  - id: "builder-001"
+    name: "Builder"
+    description: "Implementation-focused agent - Translates designs and plans into concrete code and artifacts"
+    version: "1.0.0"
+    tags:
+      - automation
+      - integration
+      - utility
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/Builder.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+  - id: "skeptic-001"
+    name: "Skeptic"
+    description: "Critical reviewer - Challenges assumptions, identifies risks, and highlights weaknesses in plans and implementations"
+    version: "1.0.0"
+    tags:
+      - analysis
+      - quality
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/Skeptic.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+  - id: "editor-001"
+    name: "Editor"
+    description: "Documentation and clarity editor - Improves organization, clarity, and style of written outputs"
+    version: "1.0.0"
+    tags:
+      - documentation
+      - quality
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/Editor.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+  - id: "project-manager-001"
+    name: "ProjectManager"
+    description: "Planning and coordination agent - Manages tasks, scope, and progress across agents and work items"
+    version: "1.0.0"
+    tags:
+      - automation
+      - integration
+      - documentation
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/ProjectManager.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+  - id: "citation-officer-001"
+    name: "CitationOfficer"
+    description: "Citation and sourcing officer - Ensures outputs are properly cited and sources are clearly referenced"
+    version: "1.0.0"
+    tags:
+      - documentation
+      - quality
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/CitationOfficer.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+  - id: "chatgpt-001"
+    name: "ChatGPT"
+    description: "General-purpose language model interface - Provides flexible natural language reasoning and assistance"
+    version: "1.0.0"
+    tags:
+      - automation
+      - utility
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/ChatGPT.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
 # Validation rules
 validation_rules:
   # MUST requirements
