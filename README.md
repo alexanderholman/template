@@ -21,18 +21,21 @@ as per the other documents feel free to adapt it to fit your needs, adding, modi
 
 For more details, see [INSTALL](/INSTALL.md).
 
-## AI Agents (GitHub Copilot)
-This template includes AI agent definitions for use with GitHub Copilot. These agents provide structured roles and instructions for different types of development tasks:
+## AI Agents (AgentFactory)
+This template includes AgentFactory-compatible AI agent definitions and validation tooling. These agents provide structured roles and instructions for different types of development tasks:
 
 - **Architect** - Spec authoring and system design
 - **Builder** - Implementation and artifact production
-- **Skeptic** - Adversarial review and testing
+- **Tester** - Test creation and validation
+- **SecurityReviewer** - Security analysis and compliance
+- **Skeptic** - Adversarial review and edge cases
 - **Editor** - Clarity and structure improvements
-- **Project Manager** - Coordination and packaging
-- **Citation Officer** - Evidence auditing
+- **ProjectManager** - Coordination and packaging
+- **CitationOfficer** - Evidence auditing
 - **ChatGPT** - General-purpose execution
+- **OpenCodeManager** - Session orchestration for OpenCode
 
-For details on using these agents, see [agents.md](/agents.md). Agent definitions are in [.github/agents/](/.github/agents/).
+For details, see [AGENTS.md](/AGENTS.md) and [agents.md](/agents.md). Agent definitions live under [agents/](/agents/).
 
 ## Getting involved
 If for any reason you wish or need to get involved, please start by reading our [CODE OF CONDUCT](/CODE_OF_CONDUCT.md) 
