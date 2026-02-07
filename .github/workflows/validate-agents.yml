@@ -7,6 +7,9 @@ on:
       - 'agents/**'
       - 'agents.yaml'
       - 'agents.md'
+      - 'workflows/**'
+      - 'tasks/**'
+      - 'scripts/**'
       - 'validate_agents.sh'
   pull_request:
     branches: [ main, develop ]
@@ -14,6 +17,9 @@ on:
       - 'agents/**'
       - 'agents.yaml'
       - 'agents.md'
+      - 'workflows/**'
+      - 'tasks/**'
+      - 'scripts/**'
       - 'validate_agents.sh'
   workflow_dispatch:
 

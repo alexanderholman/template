@@ -6,6 +6,11 @@ This document defines the rules and structure for agent files in the Agent Facto
 ## Rules for Agent Files
 
 ### MUST Requirements
+0. **Only Write Once**: Agents MUST check for an existing script/workflow before performing repeatable actions manually. If no script exists and the action is repeatable, agents MUST write a reusable script first.
+   - **Test**: For repeatable actions, verify a script or workflow reference is included in output/run notes
+   - **Pass**: Existing script used, or new script created before execution
+   - **Fail**: Repeatable action performed ad-hoc with no script lookup or creation
+
 1. **Flexible File Structure**: Agent files MUST be stored under the `agents/` directory and MAY be nested in subdirectories. All `file_path` values in `agents.yaml` MUST point to existing files.
    - **Test**: Verify all agent file paths defined in `agents.yaml` exist
    - **Pass**: Every referenced file exists
@@ -40,6 +45,11 @@ This document defines the rules and structure for agent files in the Agent Facto
    - **Test**: Manual review or citation validation
    - **Pass**: All citations are verifiable
    - **Fail**: Fabricated or unverifiable citations found
+
+7. **Local Model Feasibility Gate**: If a model is required, agents SHOULD prefer local model training/inference pipelines first, but MUST gate on feasibility (data availability, hardware budget, runtime budget, and acceptance metric).
+   - **Test**: Verify output includes feasibility assessment and selected execution path
+   - **Pass**: Local pipeline selected when feasible, otherwise deterministic scripted fallback chosen
+   - **Fail**: Model path selected without feasibility check
 
 ### SHOULD Requirements
 1. **Descriptive Names**: Agent names SHOULD be descriptive and clearly indicate their purpose

@@ -164,6 +164,17 @@ run_test "TEST-006-1" \
     "Verify key documentation files use .md extension" \
     "[ -f agents.md ] && [ -f specs.md ] && [ -f agent_runs.md ] && [ -f decisions.md ]"
 
+# TEST-008-1: Enforce script references for repeatable task docs
+echo "=== SPEC-008: Script-First Automation ==="
+if [ -f "scripts/check_repeatable_script_refs.py" ]; then
+    run_test "TEST-008-1" \
+        "Verify repeatable task docs include script references" \
+        "python3 scripts/check_repeatable_script_refs.py --root ."
+else
+    echo "Note: scripts/check_repeatable_script_refs.py not found - skipping TEST-008-1"
+    echo ""
+fi
+
 # Summary
 echo "======================================"
 echo "Validation Summary"

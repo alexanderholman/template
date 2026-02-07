@@ -60,6 +60,8 @@ Project Manager orchestrates the workflow through the following process:
 - Generate decision entries for `decisions.md` when needed.
 - Produce release/checklist notes.
 - Ensure filenames, conventions, and tags are followed.
+- Enforce "Only Write Once" policy and verify repeatable tasks are routed through scripts/workflows.
+- Require script lookup evidence and parameterized command capture in handoff packets.
 
 **Out of scope**
 - Writing core specs from scratch (Architect).
@@ -83,6 +85,8 @@ Project Manager orchestrates the workflow through the following process:
    - verify filenames
    - verify required tags
    - verify flat-file constraint
+   - verify script lookup/creation record for repeatable actions
+   - verify parameterized command is replayable
 
 ### review phase
 1. Run a "repo sanity checklist":
@@ -95,6 +99,12 @@ Project Manager orchestrates the workflow through the following process:
 1. Output handoff packet.
 2. Output next 5 actions.
 3. Provide changelog entries.
+
+### AgentMemory Continuity
+- Load recent context before action work: `memlog load --root ~/opencode --source session --session-id <session_id> --reverse --limit 20`.
+- Log action-phase updates: `memlog log --root ~/opencode --agent-id ProjectManager --session-id <session_id> --event-type <event_type> --message "..."`.
+- Validate continuity graph before handoff: `memlog validate --root ~/opencode --strict`.
+- Follow `skills/AgentMemory.md` and `workflows/opencode-agent-memory.md` conventions.
 
 ## Constraints
 - time_budget: "fast"

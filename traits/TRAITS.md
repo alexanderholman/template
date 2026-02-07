@@ -40,3 +40,8 @@ Use this template:
 ## Overrides
 - <how to override, if allowed>
 ```
+
+## Included Traits
+- `traits/pr-review-automation.md`
+- `traits/pr-authorship-clarity.md`
+- `traits/script-first-automation.md`

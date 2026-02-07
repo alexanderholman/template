@@ -37,6 +37,15 @@ This template includes AgentFactory-compatible AI agent definitions and validati
 
 For details, see [AGENTS.md](/AGENTS.md) and [agents.md](/agents.md). Agent definitions live under [agents/](/agents/).
 
+### Script-First (Only Write Once)
+This template includes script-first routing assets so agents can resolve natural language requests to reusable automations:
+
+- Script registry: [scripts/registry.yaml](/scripts/registry.yaml)
+- Resolver utility: [scripts/resolve.py](/scripts/resolve.py)
+- Route-and-run wrapper: [scripts/route_and_run.py](/scripts/route_and_run.py)
+- Repeatable-task reference check: [scripts/check_repeatable_script_refs.py](/scripts/check_repeatable_script_refs.py)
+- Workflow: [workflows/nl-to-script-routing.md](/workflows/nl-to-script-routing.md)
+
 ## Agent Memory Setup
 Use AgentMemory to add cross-session continuity for OpenCode and AgentFactory runs.
 

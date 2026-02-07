@@ -38,3 +38,4 @@ Use this template:
 ## Included Workflows
 - `workflows/pr-review-and-merge.md`
 - `workflows/opencode-agent-memory.md`
+- `workflows/nl-to-script-routing.md`
