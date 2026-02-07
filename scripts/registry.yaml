@@ -1,6 +1,24 @@
 schema_version: "1.0.0"
 
 scripts:
+  - id: "forge-route"
+    intent:
+      - "forge"
+      - "route"
+      - "hci"
+      - "shortcut"
+    description: "Shortcut wrapper around route-and-run for Forge session command routing"
+    command: "scripts/forge-route '<request>'"
+    parameters:
+      - "execute"
+      - "request"
+    outputs:
+      - "selected-script"
+      - "rendered-command"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
   - id: "route-and-run"
     intent:
       - "route"

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+execute_flag=""
+if [[ "${1:-}" == "--execute" ]]; then
+  execute_flag="--execute"
+  shift
+fi
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: scripts/forge-route [--execute] <query...>"
+  exit 2
+fi
+
+query="$*"
+
+if [[ -n "$execute_flag" ]]; then
+  python3 scripts/route_and_run.py --query "$query" --execute
+else
+  python3 scripts/route_and_run.py --query "$query"
+fi

@@ -162,8 +162,14 @@ python3 scripts/resolve.py --query "validate agent definitions" --top-k 3
 # Route and run from NL (dry-run by default)
 python3 scripts/route_and_run.py --query "validate agent definitions"
 
+# Forge shortcut wrapper (dry-run)
+scripts/forge-route "validate agent definitions"
+
 # Execute selected route with explicit parameters
 python3 scripts/route_and_run.py --script-id resolve-script --arg request="validate agent definitions" --execute
+
+# Forge shortcut with execution
+scripts/forge-route --execute "validate agent definitions"
 
 # Enforce repeatable-task script references
 python3 scripts/check_repeatable_script_refs.py --root .
