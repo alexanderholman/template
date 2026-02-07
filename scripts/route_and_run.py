@@ -28,9 +28,17 @@ def score_script(script, query_tokens):
     intent_tokens = set()
     for item in script.get("intent", []):
         intent_tokens |= tokenize(item)
+    capability_tokens = set()
+    for item in script.get("capabilities", []):
+        capability_tokens |= tokenize(item)
     id_tokens = tokenize(script.get("id", ""))
     desc_tokens = tokenize(script.get("description", ""))
-    return 5 * len(query_tokens & intent_tokens) + 2 * len(query_tokens & id_tokens) + len(query_tokens & desc_tokens)
+    return (
+        5 * len(query_tokens & intent_tokens)
+        + 3 * len(query_tokens & capability_tokens)
+        + 2 * len(query_tokens & id_tokens)
+        + len(query_tokens & desc_tokens)
+    )
 
 
 def select_script(scripts, script_id, query, intents):

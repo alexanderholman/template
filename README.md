@@ -45,6 +45,11 @@ This template includes script-first routing assets so agents can resolve natural
 - Route-and-run wrapper: [scripts/route_and_run.py](/scripts/route_and_run.py)
 - Forge shortcut wrapper: [scripts/forge-route](/scripts/forge-route)
 - Repeatable-task reference check: [scripts/check_repeatable_script_refs.py](/scripts/check_repeatable_script_refs.py)
+- Registry schema check: [scripts/validate_registry.py](/scripts/validate_registry.py)
+- Dry-run policy check: [scripts/check_dry_run_conventions.py](/scripts/check_dry_run_conventions.py)
+- Route-and-run usage: [scripts/route-and-run.md](/scripts/route-and-run.md)
+- Script template: [scripts/templates/README.md](/scripts/templates/README.md)
+- ML feasibility checklist: [tasks/ml-feasibility-checklist.md](/tasks/ml-feasibility-checklist.md)
 - Workflow: [workflows/nl-to-script-routing.md](/workflows/nl-to-script-routing.md)
 
 ## Agent Memory Setup

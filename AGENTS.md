@@ -118,6 +118,18 @@ find agents/ -name "*.md" -type f
 
 ## Common Tasks
 
+### Operator Quickstart
+```bash
+# 1) Resolve and preview
+scripts/forge-route "validate agent definitions"
+
+# 2) Execute routed command
+scripts/forge-route --execute "validate agent definitions"
+
+# 3) Run full policy validation
+./validate_agents.sh
+```
+
 ### View Current Agents
 ```bash
 # List all agent files
@@ -173,6 +185,10 @@ scripts/forge-route --execute "validate agent definitions"
 
 # Enforce repeatable-task script references
 python3 scripts/check_repeatable_script_refs.py --root .
+
+# Validate registry schema and dry-run conventions
+python3 scripts/validate_registry.py --registry scripts/registry.yaml
+python3 scripts/check_dry_run_conventions.py --registry scripts/registry.yaml
 ```
 
 ### Update Agent Metadata

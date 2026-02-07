@@ -17,6 +17,9 @@ def gather_markdown_files(root):
         if not base.exists():
             continue
         files.extend(sorted(base.rglob("*.md")))
+    specs = root / "specs.md"
+    if specs.exists():
+        files.append(specs)
     return files
 
 
