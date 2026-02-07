@@ -175,6 +175,26 @@ else
     echo ""
 fi
 
+# TEST-008-2: Validate registry schema
+if [ -f "scripts/validate_registry.py" ]; then
+    run_test "TEST-008-2" \
+        "Validate scripts registry schema" \
+        "python3 scripts/validate_registry.py --registry scripts/registry.yaml"
+else
+    echo "Note: scripts/validate_registry.py not found - skipping TEST-008-2"
+    echo ""
+fi
+
+# TEST-008-3: Validate dry-run conventions for executable scripts
+if [ -f "scripts/check_dry_run_conventions.py" ]; then
+    run_test "TEST-008-3" \
+        "Verify execute-intent scripts use dry-run gating" \
+        "python3 scripts/check_dry_run_conventions.py --registry scripts/registry.yaml"
+else
+    echo "Note: scripts/check_dry_run_conventions.py not found - skipping TEST-008-3"
+    echo ""
+fi
+
 # Summary
 echo "======================================"
 echo "Validation Summary"

@@ -1,12 +1,50 @@
 schema_version: "1.0.0"
 
 scripts:
+  - id: "validate-registry"
+    intent:
+      - "validate"
+      - "registry"
+      - "schema"
+    capabilities:
+      - "registry-schema-check"
+      - "quality-gate"
+    description: "Validate scripts registry structure and required fields"
+    command: "python3 scripts/validate_registry.py --registry scripts/registry.yaml"
+    parameters: []
+    outputs:
+      - "validation-report"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
+  - id: "check-dry-run-conventions"
+    intent:
+      - "validate"
+      - "dry-run"
+      - "execution-safety"
+    capabilities:
+      - "dry-run-policy-check"
+      - "execution-gating"
+    description: "Validate execute-intent scripts expose dry-run or execute gating"
+    command: "python3 scripts/check_dry_run_conventions.py --registry scripts/registry.yaml"
+    parameters: []
+    outputs:
+      - "validation-report"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
   - id: "forge-route"
     intent:
       - "forge"
       - "route"
       - "hci"
       - "shortcut"
+    capabilities:
+      - "nl-routing"
+      - "command-shortcut"
+      - "forge-session"
     description: "Shortcut wrapper around route-and-run for Forge session command routing"
     command: "scripts/forge-route '<request>'"
     parameters:
@@ -25,6 +63,10 @@ scripts:
       - "execute"
       - "nl-command"
       - "script-selection"
+    capabilities:
+      - "nl-routing"
+      - "parameterized-execution"
+      - "dry-run-gating"
     description: "Resolve natural language requests to scripts and execute parameterized commands"
     command: "python3 scripts/route_and_run.py --query '<request>' --execute"
     parameters:
@@ -47,6 +89,10 @@ scripts:
       - "intent-resolution"
       - "script-selection"
       - "parameterization"
+    capabilities:
+      - "intent-matching"
+      - "script-ranking"
+      - "parameter-hints"
     description: "Resolve natural language intent to best matching registered scripts"
     command: "python3 scripts/resolve.py --query '<request>' --top-k 3"
     parameters:
@@ -65,6 +111,10 @@ scripts:
       - "validate"
       - "repeatable-task-docs"
       - "ci"
+    capabilities:
+      - "policy-enforcement"
+      - "documentation-scan"
+      - "repeatability-check"
     description: "Fail if repeatable task documentation has no nearby script reference"
     command: "python3 scripts/check_repeatable_script_refs.py --root ."
     parameters: []
@@ -78,6 +128,9 @@ scripts:
     intent:
       - "validate"
       - "agent-definitions"
+      - "quality-gate"
+    capabilities:
+      - "agent-validation"
       - "quality-gate"
     description: "Validate AgentFactory required rules and metadata consistency"
     command: "./validate_agents.sh"

@@ -25,11 +25,15 @@ def score_script(script, query_tokens):
     intent_tokens = set()
     for i in script.get("intent", []):
         intent_tokens |= tokenize(i)
+    capability_tokens = set()
+    for c in script.get("capabilities", []):
+        capability_tokens |= tokenize(c)
     id_tokens = tokenize(script.get("id", ""))
     desc_tokens = tokenize(script.get("description", ""))
 
     score = 0
     score += 5 * len(query_tokens & intent_tokens)
+    score += 3 * len(query_tokens & capability_tokens)
     score += 2 * len(query_tokens & id_tokens)
     score += 1 * len(query_tokens & desc_tokens)
     return score
@@ -41,6 +45,7 @@ def format_result(script, score):
         "description": script.get("description", ""),
         "command": script.get("command", ""),
         "intent": script.get("intent", []),
+        "capabilities": script.get("capabilities", []),
         "parameters": script.get("parameters", []),
         "score": score,
     }
@@ -93,6 +98,8 @@ def main():
         print(f"{idx}. {result['id']} (score={result['score']})")
         print(f"   description: {result['description']}")
         print(f"   command: {result['command']}")
+        if result.get("capabilities"):
+            print(f"   capabilities: {result['capabilities']}")
         if result.get("parameters"):
             print(f"   parameters: {result['parameters']}")
     return 0
