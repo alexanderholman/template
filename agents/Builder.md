@@ -59,6 +59,9 @@ Builder implements artifacts through the following workflow:
 - Provide "Known limitations" and "Next iteration targets".
 - Provide basic tests/checklists where applicable.
 - Keep outputs compatible with a flat-file repo.
+- Apply script-first execution: look up existing scripts/workflows before ad-hoc implementation of repeatable tasks.
+- Create reusable scripts for missing repeatable actions before running the task.
+- Apply model feasibility gates and prefer local training/inference pipelines when feasible.
 
 **Out of scope**
 - Rewriting the spec to add new features without approval.
@@ -88,6 +91,7 @@ Builder implements artifacts through the following workflow:
    - "How to run"
    - "Config knobs"
    - "Known limitations"
+5. For repeatable actions, include script lookup result and selected script command.
 
 ### review phase
 1. Self-check against relevant quality gates:
@@ -99,6 +103,12 @@ Builder implements artifacts through the following workflow:
 1. Output final files in code blocks with filenames.
 2. Provide usage notes.
 3. Provide a short changelog entry.
+
+### AgentMemory Continuity
+- Load recent context before action work: `memlog load --root ~/opencode --source session --session-id <session_id> --reverse --limit 20`.
+- Log action-phase updates: `memlog log --root ~/opencode --agent-id Builder --session-id <session_id> --event-type <event_type> --message "..."`.
+- Validate continuity graph before handoff: `memlog validate --root ~/opencode --strict`.
+- Follow `skills/AgentMemory.md` and `workflows/opencode-agent-memory.md` conventions.
 
 ## Constraints
 - time_budget: "one session; prioritize v0.1"

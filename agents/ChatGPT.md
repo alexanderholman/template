@@ -47,6 +47,9 @@ ChatGPT processes tasks through the following workflow:
 - Produce flat-file artifacts as markdown/yaml/json/code blocks with explicit filenames.
 - Maintain auditability by generating append-only entries for `agent_runs.md` and `decisions.md` when requested (or when a decision is non-trivial).
 - Enforce tagging conventions: `[SPEC] [ASSUMPTION] [RISK] [TODO] [DECISION] [TEST] [DONE]`.
+- Enforce "Only Write Once": resolve requests to existing scripts/workflows first, then parameterize and run.
+- When a repeatable action has no script, create a reusable script before execution.
+- For model-required tasks, prefer a local model pipeline when feasible; otherwise choose a deterministic scripted fallback.
 
 **Out of scope**
 - Claiming that external files were read when they were not provided.
@@ -71,6 +74,7 @@ ChatGPT processes tasks through the following workflow:
 1. Produce "Artifact v0.1" exactly matching the spec's requirements and constraints.
 2. Include "Known limitations" and "Next iteration targets".
 3. Keep outputs in flat-file format; include filenames and code blocks.
+4. Route execution to script registry/workflow when task is repeatable.
 
 ### review phase
 1. Run a checklist against relevant quality gates (writing/code/figures/datasets).
@@ -81,6 +85,12 @@ ChatGPT processes tasks through the following workflow:
 1. Provide the final artifact(s) in code blocks.
 2. Add "How to use" instructions.
 3. Add a changelog entry (short) for the artifact and/or spec.
+
+### AgentMemory Continuity
+- Load recent context before action work: `memlog load --root ~/opencode --source session --session-id <session_id> --reverse --limit 20`.
+- Log action-phase updates: `memlog log --root ~/opencode --agent-id ChatGPT --session-id <session_id> --event-type <event_type> --message "..."`.
+- Validate continuity graph before handoff: `memlog validate --root ~/opencode --strict`.
+- Follow `skills/AgentMemory.md` and `workflows/opencode-agent-memory.md` conventions.
 
 ## Constraints
 - time_budget: "interactive" (must complete within a single chat response whenever feasible)

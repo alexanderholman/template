@@ -1,0 +1,85 @@
+schema_version: "1.0.0"
+
+scripts:
+  - id: "route-and-run"
+    intent:
+      - "route"
+      - "execute"
+      - "nl-command"
+      - "script-selection"
+    description: "Resolve natural language requests to scripts and execute parameterized commands"
+    command: "python3 scripts/route_and_run.py --query '<request>' --execute"
+    parameters:
+      - "query"
+      - "intent"
+      - "script-id"
+      - "arg"
+      - "execute"
+    outputs:
+      - "selected-script"
+      - "rendered-command"
+      - "execution-result"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
+  - id: "resolve-script"
+    intent:
+      - "route"
+      - "intent-resolution"
+      - "script-selection"
+      - "parameterization"
+    description: "Resolve natural language intent to best matching registered scripts"
+    command: "python3 scripts/resolve.py --query '<request>' --top-k 3"
+    parameters:
+      - "query"
+      - "intent"
+      - "top-k"
+      - "json"
+    outputs:
+      - "ranked-script-matches"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
+  - id: "check-repeatable-script-refs"
+    intent:
+      - "validate"
+      - "repeatable-task-docs"
+      - "ci"
+    description: "Fail if repeatable task documentation has no nearby script reference"
+    command: "python3 scripts/check_repeatable_script_refs.py --root ."
+    parameters: []
+    outputs:
+      - "validation-report"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
+  - id: "validate-agents"
+    intent:
+      - "validate"
+      - "agent-definitions"
+      - "quality-gate"
+    description: "Validate AgentFactory required rules and metadata consistency"
+    command: "./validate_agents.sh"
+    parameters: []
+    outputs:
+      - "validation-report"
+    validation:
+      - "exit_code == 0"
+    status: "active"
+
+policy:
+  only_write_once: true
+  require_lookup_before_repeatable_action: true
+  require_script_creation_if_missing: true
+  require_parameterization: true
+  model_required_policy:
+    prefer_local_when_feasible: true
+    feasibility_gates:
+      - "data_available"
+      - "hardware_budget"
+      - "runtime_budget"
+      - "acceptance_metric_defined"
+    fallback: "deterministic_scripted_non_ml"

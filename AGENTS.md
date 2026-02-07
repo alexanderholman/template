@@ -25,6 +25,7 @@ This template is preloaded with AgentFactory-style agent definitions, validation
   - `agent_runs.md` - Execution logs
 
 - **traits/** - Reusable behavioral modules for agents/specialisms/tasks
+- **skills/** - Operational playbooks for repeatable runtime behaviors
 - **workflows/** - Task-level execution patterns and validation gates
 - **tasks/** - Recurring and stateful task tracking (cadence, wip, triage)
 
@@ -138,6 +139,36 @@ tail -50 decisions.md
 tail -50 agent_runs.md
 ```
 
+### Verify Agent Memory Wiring
+```bash
+# Install or refresh memlog
+cd ~/AgentMemory && ./install.sh --force
+
+# Health checks
+memlog doctor --root ~/opencode --strict
+
+# Continuity graph checks
+memlog validate --root ~/opencode --strict
+```
+
+### Resolve Task to Script (Only Write Once)
+```bash
+# List registered automations
+python3 -c "import yaml; d=yaml.safe_load(open('scripts/registry.yaml')); print('\n'.join(sorted(s['id'] for s in d.get('scripts', []))))"
+
+# Resolve NL request to top script matches
+python3 scripts/resolve.py --query "validate agent definitions" --top-k 3
+
+# Route and run from NL (dry-run by default)
+python3 scripts/route_and_run.py --query "validate agent definitions"
+
+# Execute selected route with explicit parameters
+python3 scripts/route_and_run.py --script-id resolve-script --arg request="validate agent definitions" --execute
+
+# Enforce repeatable-task script references
+python3 scripts/check_repeatable_script_refs.py --root .
+```
+
 ### Update Agent Metadata
 1. Edit `agents.yaml` to update metadata
 2. Increment version number
@@ -154,6 +185,9 @@ tail -50 agent_runs.md
 - Run validation before committing
 - Append to append-only files (never modify existing content)
 - Mark assumptions with `[ASSUMPTION]` tags
+- Enforce "Only Write Once": check for existing scripts/workflows before ad-hoc execution
+- If a repeatable action has no script, write the script first, then execute it
+- Parameterize scripts for reuse; avoid one-off hardcoded values
 
 ### MUST NOT DO
 - Modify or delete content in append-only files (specs.md, decisions.md, agent_runs.md)
@@ -161,6 +195,7 @@ tail -50 agent_runs.md
 - Use duplicate agent IDs
 - Create agents without required headings
 - Skip validation before committing
+- Repeat manual multi-step actions when they can be scripted and reused
 
 ## Directory Structure
 
