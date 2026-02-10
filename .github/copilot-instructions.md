@@ -161,7 +161,7 @@ When working with GitHub Copilot Workspace:
 - Copilot can read agent definitions to understand the agent factory pattern
 - Copilot can help create new agent definitions following the established format
 - Copilot can validate changes against the specifications
-- Copilot respects the flat-file structure and append-only constraints
+- Copilot respects the flexible directory structure and append-only file constraints
 
 ## Testing and Quality
 

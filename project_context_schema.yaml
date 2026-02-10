@@ -1,4 +1,4 @@
-<!-- filename: project_context_schema.yaml -->
+# filename: project_context_schema.yaml
 
 # Defines the standard schema for per-project context files.
 # Expected filenames:
